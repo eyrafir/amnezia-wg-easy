@@ -37,5 +37,5 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         push: true
-        platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8
+        platforms: linux/amd64,linux/arm64/v8
         tags: ghcr.io/w0rng/amnezia-wg-easy:latest, ghcr.io/w0rng/amnezia-wg-easy:${{ env.RELEASE }}
