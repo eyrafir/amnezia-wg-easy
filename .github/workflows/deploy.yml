@@ -31,13 +31,15 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Set environment variables
-      run: echo RELEASE=$(cat ./src/package.json | jq -r .release | jq -r .version) >> $GITHUB_ENV
+      run: echo "RELEASE=dev-$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
+#      run: echo RELEASE=$(cat ./src/package.json | jq -r .release | jq -r .version) >> $GITHUB_ENV
 
     - name: Build & Publish Docker Image
       uses: docker/build-push-action@v6
       with:
         push: true
-        platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8
+#        platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8
+        platforms: linux/amd64,linux/arm64/v8
         tags: |
           eyrafir/amnezia-wg-easy:latest
           eyrafir/amnezia-wg-easy:${{ env.RELEASE }}
