@@ -39,6 +39,7 @@ RUN apk add --no-cache dpkg dumb-init nodejs npm
 
 # Add alias
 RUN ln -s /usr/bin/awg /usr/bin/wg && ln -s /usr/bin/awg-quick /usr/bin/wg-quick
+RUN ln -s /etc/amnezia/amneziawg /etc/wireguard
 
 # Set Environment
 ENV DEBUG=Server,WireGuard
