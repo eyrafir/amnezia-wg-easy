@@ -31,15 +31,11 @@ COPY --from=build_node_modules /app/wgpw.sh /bin/wgpw
 RUN chmod +x /bin/wgpw
 
 # Install Linux packages
-RUN apk add --no-cache \
-    dpkg \
-    dumb-init \
-    iptables \
-    nodejs \
-    npm
+#RUN apk add --no-cache dpkg dumb-init nodejs npm iptables
+RUN apk add --no-cache dpkg dumb-init nodejs npm
 
 # Use iptables-legacy
-RUN update-alternatives --install /sbin/iptables iptables /sbin/iptables-legacy 10 --slave /sbin/iptables-restore iptables-restore /sbin/iptables-legacy-restore --slave /sbin/iptables-save iptables-save /sbin/iptables-legacy-save
+#RUN update-alternatives --install /sbin/iptables iptables /sbin/iptables-legacy 10 --slave /sbin/iptables-restore iptables-restore /sbin/iptables-legacy-restore --slave /sbin/iptables-save iptables-save /sbin/iptables-legacy-save
 
 # Set Environment
 ENV DEBUG=Server,WireGuard
