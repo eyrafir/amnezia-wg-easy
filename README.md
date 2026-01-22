@@ -128,7 +128,7 @@ To update to the latest version, simply run:
 ```bash
 docker stop amnezia-wg-easy
 docker rm amnezia-wg-easy
-docker pull ghcr.io/w0rng/amnezia-wg-easy
+docker pull eyrafir/amnezia-wg-easy
 ```
 
 And then run the `docker run -d \ ...` command above again.
